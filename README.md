@@ -79,56 +79,25 @@ You can do some verification on your own, but the sum of the digits excluding th
 
 ## What can speed up the calculations?
 
-is an Armstrong number.
+One thing that jumped out at me is that multiplication takes a lot of time and in the brute force method we do a lot of it.
+
+For example, with the six digit Armstrong numbers, we run through 6 multiplications (taking each number to the sixth power) before we add the six numbers together. (Some programming languages use a different approach for calculating things that is faster than raw multiplication but also tends to be less accurate. From what I can tell, this is not an issue with Python and for other languages where it would be an issue the "arbitraty length" intergers we are dealing with would need to be handled differently.)
+
+To simplify this, we can calculate the powers of the digits 0 through 9 for the number of digits we are wanting to evaluate once at the beginning of things. This will keep the other math we use down to simple additions.
 
 
-3 4 2187
-4 5 26244
-5 6 295245
-6 7 3188646
-
-
-
-
-
-the  Calculating a single digit raised to the 39th power 39 times (once for each digit) starts adding up. Doing that for all numbers with 39 digits would take some time.
-
-
-
-
-On the other hand, if I want to search for Armstrong numbers with 39 digits, it would be easier to calculated the digits 0 through 9 to the 39th power once (and 0 and 1 are trival in any case) and save them. Then you could evaluate each 39 digit number with only 39 additions. (Although true integer math is going to start falling part at 9 or so digits in a lot of languages, so you might need to get creative in the approach.)
+## Any other ideas on speeding things up?
 
 One other efficiency that comes to mind is that we don't have to calculate for a specific number but can, instead, calculate for a combination of digits. For example, if we check whether a 1, a 3, and a 5 could create an Armstrong Number, we get the result 153 from the addition. We now have an Armstrong number (because the result is 3 digits and made up from the three digits we used for the test), but we also know (because of the cummutative property of addition) that 135, 315, 351, 513, and 531 are all NOT Armstrong Numbers (because the cube of their digits will summ to 153). This means that testing 3 single digits gave us a result that held true for 3! (3 * 2 * 1, or 6) numbers.
 
-So if we could get rid of repeated exponetial calculations and come up with a way to check sets of digits, we should be able to find an approach to calculating Armstrong Numbers that is much, much faster than the brute force approach.
+I'm not sure the overhead of handling this would be worth the improvement it would yield, but it is something to consider.
 
-
-
-## armstrong.py
-
-This program runs through a range and determines which numbers in that range are Armstrong Numbers (also referred to as Narcissistic Numbers). An Armstrong Number has the property of equaling the sum of its individual digits raised to the power of the number of digits.
-
-Some examples include:
-* 7 = 7^1
-* 371 = 3^3 + 7^3 + 1^3
-* 1634 = 1^4 + 6^4 + 3^4 + 4^4
-
-There are only 89 narcissistic numbers in Base 10, the largest of which is 115,132,219,018,763,992,565,095,597,973,971,522,401 which has 39 digits.
-
-The approach I use is mostly "Brute Force" and would likely bog down once you get to number too high in order. Calculating a single digit raised to the 39th power 39 times (once for each digit) starts adding up. Doing that for all numbers with 39 digits would take some time.
-
-On the other hand, if I want to search for Armstrong numbers with 39 digits, it would be easier to calculated the digits 0 through 9 to the 39th power once (and 0 and 1 are trival in any case) and save them. Then you could evaluate each 39 digit number with only 39 additions. (Although true integer math is going to start falling part at 9 or so digits in a lot of languages, so you might need to get creative in the approach.)
-
-One other efficiency that comes to mind is that we don't have to calculate for a specific number but can, instead, calculate for a combination of digits. For example, if we check whether a 1, a 3, and a 5 could create an Armstrong Number, we get the result 153 from the addition. We now have an Armstrong number (because the result is 3 digits and made up from the three digits we used for the test), but we also know (because of the cummutative property of addition) that 135, 315, 351, 513, and 531 are all NOT Armstrong Numbers (because the cube of their digits will summ to 153). This means that testing 3 single digits gave us a result that held true for 3! (3 * 2 * 1, or 6) numbers.
-
-So if we could get rid of repeated exponetial calculations and come up with a way to check sets of digits, we should be able to find an approach to calculating Armstrong Numbers that is much, much faster than the brute force approach.
- 
 
 ## And the fine print...
 
 To the extent applicable, all code and other material in this repository is:
 
-Copyright 2019-2020 by James McClanahan and made available under the terms of The MIT License.
+Copyright 2020 by James McClanahan and made available under the terms of The MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
