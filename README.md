@@ -1,4 +1,3 @@
-
 # Armstrong-Numbers
 Various notes and work related to Armstrong Numbers.
 
@@ -91,6 +90,22 @@ To simplify this, we can calculate the powers of the digits 0 through 9 for the 
 One other efficiency that comes to mind is that we don't have to calculate for a specific number but can, instead, calculate for a combination of digits. For example, if we check whether a 1, a 3, and a 5 could create an Armstrong Number, we get the result 153 from the addition. We now have an Armstrong number (because the result is 3 digits and made up from the three digits we used for the test), but we also know (because of the cummutative property of addition) that 135, 315, 351, 513, and 531 are all NOT Armstrong Numbers (because the cube of their digits will summ to 153). This means that testing 3 single digits gave us a result that held true for 3! (3 * 2 * 1, or 6) numbers.
 
 I'm not sure the overhead of handling this would be worth the improvement it would yield, but it is something to consider.
+
+
+## The resulting code...
+
+Can be found in armsfinal.py. You can set the number of digits you want to go out to, but it is set to 60 right now and will give you all Armstrong Numbers if you let it run overnight.
+
+
+## Is zero an Armstrong Number
+
+I see arguments about this, but zero clearly meets the definition: 0^1 = 0.
+
+Some of the arguments say it isn't because there are no two digit Armstrong Numbers and zero can be expressed as 00. But 2 can be written as 02 and it is an Armstrong Number. And even if you write it as 00, the calculation still would hold: 0^2 + 0^2 = 0 or 00.
+
+It does seem like what I would call "proper mathmaticians" sometimes talkes about "Armstrong Numbers in the range of 1 to something..." If you want to exclude zero, that seems like the proper way to do it.
+
+Having said that, the Online Encyclopedia of Interger Sequences (OEIS) does not include zero and has added the adjective "positive" to the definition. Since Zero is neither positive nor negative (as I understand their use), their definition of the sequence would exclude zero.
 
 
 ## And the fine print...
