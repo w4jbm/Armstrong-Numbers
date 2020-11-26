@@ -45,6 +45,8 @@ At the 61st order, things fall apart. If you want to calculate 61 * (9^61), you 
 
 So we can stop looking once we have evaluated potential 60 digit candiates. This puts the upper boundary on how high our search needs to go.
 
+The program armslimit.py demonstrates this.
+
 
 ## What else can simplify the search?
 
