@@ -38,7 +38,9 @@ In these cases, evaluation of the "maximum" number  yields a number with more di
 * 34th Order, x=9,456,365,241,085,579,382,747,716,391,879,874 (34 digits)
 * 35th Order, x=87,610,442,674,763,456,046,045,019,513,004,715 (35 digits)
 
-The number of digits with lower orders is sufficient for any number in that range to be considered, but when we get to the 34th order, only about 95% of the numbers are possible to derive from the equation we need to evaluate. Moving to the 35th order, only about 88% of the numbers possible have any chance of being Armstrong Numbers. In fact, we find this continues to decline.
+The number of digits with lower orders is sufficient for any number in that range to be considered, but when we get to the 34th order, only about 95% of the numbers are possible to derive from the equation we need to evaluate. Moving to the 35th order, only about 88% of the numbers possible have any chance of being Armstrong Numbers. In fact, we find this continues to decline. (The largest Armstrong Number has 39 digits and only about 64% of the numbers with 39 digits could possibly fit the equation.)
+
+Note for future consideration: I don't think the percentages are accurate because they don't take into account the lowest number in the range isn't zero. So for the 34th order, the percentage would actaully be something more like (95-10)/(100-10) or 94%.
 
 At the 61st order, things fall apart. If you want to calculate 61 * (9^61), you will find it only has 60 digits! That means there is no number with 61 digits that can ever possibly be an Armstrong Number!
 
