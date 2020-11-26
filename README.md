@@ -94,18 +94,22 @@ I'm not sure the overhead of handling this would be worth the improvement it wou
 
 ## The resulting code...
 
-Can be found in armsfinal.py. You can set the number of digits you want to go out to, but it is set to 60 right now and will give you all Armstrong Numbers if you let it run overnight.
+...can be found in armsfinal.py. You can set the number of digits you want to go out to. Right now it is set to 60 but that would take a few years to run on most machines. Realistically you can get to about ten digits if you let it run overnight. It can crank through six digits in about a second on the machine I'm using right now.
+
+If anyone ever has the horsepower to let it find all the Armstrong Numbers, I'd be interested in hearing about it.
 
 
 ## Is zero an Armstrong Number
 
-I see arguments about this, but zero clearly meets the definition: 0^1 = 0.
+I see arguments about this, but zero clearly meets the fundamental definition: 0^1 = 0.
 
 Some of the arguments say it isn't because there are no two digit Armstrong Numbers and zero can be expressed as 00. But 2 can be written as 02 and it is an Armstrong Number. And even if you write it as 00, the calculation still would hold: 0^2 + 0^2 = 0 or 00.
 
 It does seem like what I would call "proper mathmaticians" sometimes talkes about "Armstrong Numbers in the range of 1 to something..." If you want to exclude zero, that seems like the proper way to do it.
 
 Having said that, the Online Encyclopedia of Interger Sequences (OEIS) does not include zero and has added the adjective "positive" to the definition. Since Zero is neither positive nor negative (as I understand their use), their definition of the sequence would exclude zero.
+
+Having said all of that, -1 also meets the basic definition: -1^1 = -1...
 
 
 ## And the fine print...
