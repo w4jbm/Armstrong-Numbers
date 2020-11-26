@@ -54,7 +54,7 @@ Take a look at the three and four digit Armstrong Numbers: 153, 370, 371, 407, 1
 
 It probably won't jump out at anyone who isn't a math wizard or isn't looking at it, but there is a rule in play here:
 
-* Excluding the last digit, the sum of the other digits must be an **even**.
+* Excluding the last digit, the sum of the other digits must be **even**.
 
 The reason behind this is a concept called parity. An odd number to any integer power will always yield an odd result and an even number to any even power will always yield an even result.
 
