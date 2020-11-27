@@ -93,6 +93,45 @@ One other efficiency that comes to mind is that we don't have to calculate for a
 
 I'm not sure the overhead of handling this would be worth the improvement it would yield, but it is something to consider.
 
+Another thing that struck me as I considered this is that if we want to search for (picking a number) five digit Armstrong numbers, we can start at 11111 instead of 10000. In fact, for any length, we could start with "all ones". 10000 is going to evaluate to 1^5 or 1 which obviously will never have the same number of digits as the number being evaluated except in the case of single digit numbers. 11111 is going to evaluate to 5 * 1^5 or 5 which also will never have the same number of digits for any number consisting of all ones that has at least two digits.
+
+At first, the algoritm I'm thinking about didn't seem to be able to make use of this because I still need to evaluate numbers with zeros so if I had a simple rule that said the digits needed to be in ascending order, starting at 11111 would ignore anything that might have any zeros in it.
+
+But then it became clear that if I "started at the top" and had the rule instead be that the digits were in decending order, things seem to work.
+
+So in the case above, we could start our search for unique combinations of digits with something like:
+
+```
+99999
+99998
+99997
+...
+99991
+99990
+99988
+99987
+99986
+...
+99981
+99980
+99977
+99976
+99975
+...
+...
+...
+22111
+22110
+21111
+21110
+11111
+```
+
+If we sort the digits of all five digit numbers greater than 11111 in decending order, that sequence should capture all possible results.
+
+I'm still not sure how many digits we can reasonably search even with this. My gut feel is that the ability to exclude blocks of numbers because the upper digits don't sum to an even number actually saves us more evaluations.
+
+But that might change if we built some intelligence into the algorith to narrow down to the range of numbers that give us the right number of digits in the result. In this sequence, the calculation should always yeild smaller and smaller results (which would not be the case if you just simply counted down--for example 99997, 99979, 99799, 97999, and 79999 would all give the same result but by limiting our evaluations to the squence above we'd just look at 99997 and determine if the result was a five digit number that had 4 nines and 1 seven in it).
 
 ## The resulting code...
 
@@ -112,6 +151,10 @@ It does seem like what I would call "proper mathmaticians" sometimes talkes abou
 Having said that, the Online Encyclopedia of Interger Sequences (OEIS) does not include zero and has added the adjective "positive" to the definition. Since Zero is neither positive nor negative (as I understand their use), their definition of the sequence would exclude zero.
 
 Having said all of that, -1 also meets the basic definition: -1^1 = -1...
+
+As a matter of fact, -9 through 0 and on through +9 all meet the definition.
+
+I tend to refer to the searchs as looking for "non-trivial (more than one digit) Armstrong Numbers". That keeps you from debating about negative number or zero.
 
 
 ## And the fine print...
