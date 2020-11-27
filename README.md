@@ -63,12 +63,12 @@ Also, a number that ends in an odd number is odd and one that ends in an even nu
 
 So when we sum the power of the digits, if we exclude the last digit the other **must** be even. In other words, we need to only look at cases where:
 
-Even first digits + Even last digit = Even result
+Even first digits + Even last digit = Even result\
 Even first digits + Odd last digit = Odd result
 
 The fact that we are raising the first digits to some power is irrelevant because the result will still be odd or even just like the number before we raised it to the power. The cases we can ignore are where the results cannot possibly match the outcome of the calculations:
 
-Odd first digits + Even last digit = Odd Result
+Odd first digits + Even last digit = Odd Result\
 Odd first digits + Odd last digit = Even Result
 
 So with 153, 1+5 is 6 which is even. We add the final number (3) and the result of the sum of the numbers is odd.
