@@ -93,6 +93,8 @@ One other efficiency that comes to mind is that we don't have to calculate for a
 
 I'm not sure the overhead of handling this would be worth the improvement it would yield, but it is something to consider.
 
+Note: It isn't relevant to this, but the number 153 has some other interesting properties. It is a triangular triangular number; 1 + 2 + 3 + 4+ 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 = 153 and also 1! + 2! + 3! + 4! + 5! = 153. It even makes an appearance in the Bible: "So Simon Peter went aboard and hauled the net ashore, full of large fish, a hundred fifty-three of them; and though there were so many, the net was not torn." (John 21:11, NRSV).
+
 Another thing that struck me as I considered this is that if we want to search for (picking a number) five digit Armstrong numbers, we can start at 11111 instead of 10000. In fact, for any length, we could start with "all ones". 10000 is going to evaluate to 1^5 or 1 which obviously will never have the same number of digits as the number being evaluated except in the case of single digit numbers. 11111 is going to evaluate to 5 * 1^5 or 5 which also will never have the same number of digits for any number consisting of all ones that has at least two digits.
 
 At first, the algoritm I'm thinking about didn't seem to be able to make use of this because I still need to evaluate numbers with zeros so if I had a simple rule that said the digits needed to be in ascending order, starting at 11111 would ignore anything that might have any zeros in it.
