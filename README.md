@@ -140,6 +140,13 @@ But that might change if we built some intelligence into the algorith to narrow 
 If anyone ever has the horsepower to let it find all the Armstrong Numbers, I'd be interested in hearing about it.
 
 
+## But wait! There's more!
+
+I came across a snippet of code that makes use of itertools and blazes compared to the brute force approach in my original code. I've added two the use of a lookup table for the powers (as discussed earlier) and also ignore cases where the leading digit is zero. While I could get six digits in about a second before, I can now get 20 digits in about a minute (and 24 digits in about 2.5 minutes).
+
+These are in the files armsfast#.py where the # is a version number for now. Once I settle on some final code, I'll update things more.
+
+
 ## Is zero an Armstrong Number
 
 I see arguments about this, but zero clearly meets the fundamental definition: 0^1 = 0.
