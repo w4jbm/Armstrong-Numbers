@@ -2,6 +2,8 @@
 #
 # armsfast.py - Fast Armstrong Number Finder
 #
+# By Jim McClanahan, W4JBM (Dec 2020)
+#
 # I suggest running using:
 #     pypy3 armsfast.py
 #
