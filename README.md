@@ -146,7 +146,17 @@ If anyone ever has the horsepower to let it find all the Armstrong Numbers, I'd 
 
 I came across a snippet of code that makes use of itertools and blazes compared to the brute force approach in my original code. I've added two the use of a lookup table for the powers (as discussed earlier) and also ignore cases where the leading digit is zero. While I could get six digits in about a second before, I can now get 20 digits in about a minute (and 24 digits in about 2.5 minutes).
 
-These are in the files armsfast#.py where the # is a version number for now. Once I settle on some final code, I'll update things more.
+I went through several versions of working with this code and did several things:
+
+* I converted it to Python 3 which was fairly trivial.
+* I removed some logic that originally assumed at least one instance of the digits 0 through 9 were in any Armstrong Number with more than 31 digits. This made it significantly faster, but there is no way to know that is the case in advance.
+* I built a table with the powers of the various digits once at the start, so no calculating of exponents was needed in the main loop.
+* I took a look at the 'floor' of McClanahan Numbers (I made that name up...) where a single digit is repeated. If you look at the ArmstrongFloor.pdf document for four digit Armstrong numbers, you'll see that 1111, 2222, and 3333 don't sum up to four digits. What that means is that there needs to be at least (and maybe more) that is at least 4 or more. I implemented three different levels of 'filtering' out of numbers below the floor fron not filtering out anything with smaller numbers to filtering out anything that doesn't have at least one 8 for number of 14 digits and higher and then ultimately filtering out anything that doesn't have at least one 9 for 25 digits and above.
+* I added a quick check to see if the length of an evaluated experession matched the number of digits we were looking at. If not, we don't bother with the complete comparison.
+
+I was able to evalute everything up to 39 digits in just over 7.5 hours on an average machine running it using pypy3. (Actually pypy3 saves time but doesn't make a huge impact which, from my limited experience, makes me think the libraries I'm using are fairly efficient.)
+
+The final result is in armsfast5.py. I still want to run from 40 to 60 digits so I can say I've done an exhaustive search.
 
 
 ## Is zero an Armstrong Number
